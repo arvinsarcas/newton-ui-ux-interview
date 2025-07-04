@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Asset {
-  type: string;
+  type: 'stock' | 'bond' | 'real-estate' | 'crypto';
   value: number;
 }
 
@@ -20,8 +20,11 @@ export class AssetsService {
   private async loadAssets(): Promise<void> {
     try {
       const response = await fetch('assets/assets-data.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
-      this.assetsSubject.next(data || []);
+      this.assetsSubject.next(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Error loading assets:', error);
       this.assetsSubject.next([]);
@@ -33,8 +36,25 @@ export class AssetsService {
   }
 
   async addAssets(newAssets: Asset[]): Promise<void> {
+    if (!Array.isArray(newAssets) || newAssets.length === 0) {
+      return;
+    }
+
+    // Validate assets
+    const validAssets = newAssets.filter(asset => 
+      asset && 
+      typeof asset.value === 'number' && 
+      asset.value >= 0 && 
+      ['stock', 'bond', 'real-estate', 'crypto'].includes(asset.type)
+    );
+
+    if (validAssets.length === 0) {
+      console.warn('No valid assets to add');
+      return;
+    }
+
     const currentAssets = this.assetsSubject.value;
-    const updatedAssets = [...currentAssets, ...newAssets];
+    const updatedAssets = [...currentAssets, ...validAssets];
     
     try {
       // Update the JSON file (simulate API call)
@@ -48,11 +68,18 @@ export class AssetsService {
       this.assetsSubject.next(updatedAssets);
     } catch (error) {
       console.error('Error saving assets:', error);
+      throw error;
     }
   }
 
   async deleteAsset(index: number): Promise<void> {
     const currentAssets = this.assetsSubject.value;
+    
+    if (index < 0 || index >= currentAssets.length) {
+      console.warn('Invalid asset index for deletion');
+      return;
+    }
+
     const updatedAssets = currentAssets.filter((_, i) => i !== index);
     
     try {
@@ -67,6 +94,7 @@ export class AssetsService {
       this.assetsSubject.next(updatedAssets);
     } catch (error) {
       console.error('Error deleting asset:', error);
+      throw error;
     }
   }
 

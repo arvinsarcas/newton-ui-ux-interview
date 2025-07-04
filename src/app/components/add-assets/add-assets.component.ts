@@ -5,7 +5,14 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AssetsService } from '../../services/assets.service';
+import { AssetsService, Asset } from '../../services/assets.service';
+
+type AssetType = 'stock' | 'bond' | 'real-estate' | 'crypto';
+
+interface AssetFormData {
+  type: AssetType | '';
+  value: number | null;
+}
 
 @Component({
   selector: 'app-add-assets',
@@ -15,7 +22,7 @@ import { AssetsService } from '../../services/assets.service';
   styleUrl: './add-assets.component.scss'
 })
 export class AddAssetsComponent {
-  assets = [
+  assets: AssetFormData[] = [
     { type: '', value: null }
   ];
 
@@ -38,14 +45,20 @@ export class AddAssetsComponent {
 
   // Check if all asset rows are filled
   get isSaveDisabled(): boolean {
-    return this.assets.some(asset => !asset.type || asset.value === null || asset.value === '' || isNaN(asset.value));
+    return this.assets.some(asset => !asset.type || asset.value === null || asset.value === undefined || isNaN(asset.value as number));
   }
 
   // Save button handler for bottom save button
   async save() {
     // Filter out any invalid assets and convert to proper format
     const validAssets = this.assets
-      .filter(asset => asset.type && asset.value !== null && asset.value !== '' && !isNaN(asset.value))
+      .filter((asset): asset is { type: AssetType; value: number } => 
+        asset.type !== '' && 
+        asset.value !== null && 
+        asset.value !== undefined && 
+        !isNaN(asset.value as number) &&
+        ['stock', 'bond', 'real-estate', 'crypto'].includes(asset.type)
+      )
       .map(asset => ({ type: asset.type, value: Number(asset.value) }));
     
     if (validAssets.length > 0) {

@@ -1,20 +1,819 @@
+// ==========================================================================
+// ADD ASSETS COMPONENT STYLES
+// Mobile-first responsive design with progressive enhancement
+// ==========================================================================
+
+// 1. OUTER CONTAINER & MAIN LAYOUT (Mobile First)
+// ==========================================================================
+.add-assets-outer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 0 16px;
+}
+
+.add-assets-container {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+// Tablet styles
+@media (min-width: 768px) {
+  .add-assets-outer {
+    padding: 20px;
+  }
+  
+  .add-assets-container {
+    max-width: 750px;
+    min-height: auto;
+    border-radius: 16px;
+    padding: 0 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+}
+
+// Desktop styles
+@media (min-width: 1024px) {
+  .add-assets-container {
+    max-width: 850px;
+    border-radius: 24px;
+    padding: 0;
+  }
+}
+
+// Large desktop styles
+@media (min-width: 1200px) {
+  .add-assets-container {
+    max-width: 1078px;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+// 2. HEADER SECTION WITH CLOSE BUTTON
+// ==========================================================================
+.add-assets-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 16px 16px 16px;
+}
+
+.icon-border-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .assets-icon {
+    margin: 0 16px 0 0;
+    width: 36px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .add-assets-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+    flex-grow: 1;
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.close-btn:hover {
+  background: #f2f2f2;
+}
+
+.close-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 768px) {
+  .add-assets-header {
+    padding: 20px 24px 16px 24px;
+  }
+  
+  .icon-border-container {
+    .assets-icon {
+      margin: 0 20px 0 0;
+      width: 40px;
+      height: 45px;
+    }
+
+    .add-assets-title {
+      font-size: 26px;
+      line-height: 45px;
+    }
+  }
+
+  .close-btn {
+    padding: 4px;
+    margin-left: 20px;
+  }
+  
+  .close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .icon-border-container {
+    .assets-icon {
+      margin: 0 22px 0 0;
+      width: 42px;
+      height: 47px;
+    }
+
+    .add-assets-title {
+      font-size: 28px;
+      line-height: 47px;
+    }
+  }
+
+  .close-btn {
+    padding: 6px;
+    margin-left: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .icon-border-container {
+    .assets-icon {
+      margin: 0 24px 0 0;
+      width: 46px;
+      height: 51px;
+    }
+
+    .add-assets-title {
+      font-size: 30px;
+      line-height: 51px;
+    }
+  }
+
+  .close-btn {
+    padding: 8px;
+    margin-left: 32px;
+  }
+}
+
+.add-assets-header-border {
+  width: 100%;
+  height: 1px;
+  background: #CCCCCC;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .add-assets-header-border {
+    margin-top: 10px;
+  }
+}
+
+// 4. MIDDLE CONTAINER & FORM TABLE
+// ==========================================================================
+.add-assets-middle-container {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCCCCC;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin: 20px 0 0 0;
+  padding: 16px 8px;
+}
+
+@media (min-width: 768px) {
+  .add-assets-middle-container {
+    max-width: 700px;
+    border-radius: 12px;
+    margin: 24px auto 0 auto;
+    padding: 20px 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-assets-middle-container {
+    max-width: 850px;
+    border-radius: 16px;
+    margin: 30px auto 0 auto;
+    padding: 24px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .add-assets-middle-container {
+    max-width: 988px;
+  }
+}
+
+.asset-form-table-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table-wrapper {
+    margin-top: 24px;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table-wrapper {
+    margin-top: 32px;
+    padding: 24px;
+  }
+}
+
+.asset-form-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  background: transparent;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.04);
+  border-radius: 8px;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table {
+    border-spacing: 0 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.04);
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table {
+    border-spacing: 0 12px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+    border-radius: 12px;
+  }
+}
+
+.asset-form-table thead tr {
+  border-bottom: 1.5px solid #CCCCCC;
+}
+
+.asset-form-table th {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  padding-bottom: 8px;
+  border: none;
+  background: none;
+  padding-left: 16px;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table th {
+    font-size: 18px;
+    padding-left: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table th {
+    font-size: 20px;
+    padding-left: 70px;
+  }
+}
+
+.asset-form-table td {
+  border: none;
+  background: transparent;
+  padding: 8px 8px 6px 8px;
+  vertical-align: top;
+  width: 48%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table td {
+    padding: 10px 12px 7px 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table td {
+    padding: 12px 16px 8px 16px;
+  }
+}
+
+.asset-form-table td:first-child {
+  padding-left: 12px;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table td:first-child {
+    padding-left: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table td:first-child {
+    padding-left: 20px;
+  }
+}
+
+.asset-form-table td:last-child {
+  padding-right: 12px;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table td:last-child {
+    padding-right: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table td:last-child {
+    padding-right: 20px;
+  }
+}
+
+.asset-form-table td + td {
+  padding-left: 16px;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table td + td {
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table td + td {
+    padding-left: 24px;
+  }
+}
+
+.asset-form-table .w-100 {
+  width: 100%;
+}
+
+// 5. FORM INPUTS & CONTROLS
+// ==========================================================================
+.asset-form-table input[type="number"],
+.asset-form-table input.form-control,
+.asset-form-table select {
+  width: 100%;
+  min-width: 100px;
+  max-width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background: transparent;
+  color: #222;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table input[type="number"],
+  .asset-form-table input.form-control,
+  .asset-form-table select {
+    min-width: 120px;
+    padding: 7px 11px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table input[type="number"],
+  .asset-form-table input.form-control,
+  .asset-form-table select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+}
+
+.asset-form-table input[type="number"]:focus,
+.asset-form-table input.form-control:focus {
+  outline: 2px solid #1976d2;
+  border-color: #1976d2;
+}
+
+.asset-form-table select {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table select {
+    width: 92%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table select {
+    width: 90%;
+  }
+}
+
+.asset-form-table select:focus {
+  outline: 2px solid #1976d2;
+  border-color: #1976d2;
+}
+
+.asset-form-table button.form-select {
+  width: 100%;
+  text-align: left;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: #222;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table button.form-select {
+    padding: 7px 11px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table button.form-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+}
+
+// 6. DROPDOWN MENU STYLES
+// ==========================================================================
+.asset-form-table ul[ngbDropdownMenu] {
+  width: 100%;
+  min-width: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.08);
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table ul[ngbDropdownMenu] {
+    border-radius: 5px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,0.08);
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table ul[ngbDropdownMenu] {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  }
+}
+
+.asset-form-table li[ngbDropdownItem] {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #222;
+}
+
+@media (min-width: 768px) {
+  .asset-form-table li[ngbDropdownItem] {
+    padding: 7px 14px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asset-form-table li[ngbDropdownItem] {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+.asset-form-table li[ngbDropdownItem]:hover {
+  background: #f0f4fa;
+}
+
+// 7. INPUT DOLLAR GROUP & DELETE BUTTON
+// ==========================================================================
+.input-dollar-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-dollar-prefix {
+  background: transparent;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 8px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #ccc;
+  border-right: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .input-dollar-prefix {
+    font-size: 16px;
+    padding: 7px 10px;
+    border-radius: 5px 0 0 5px;
+    height: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .input-dollar-prefix {
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px 0 0 6px;
+    height: 40px;
+  }
+}
+
+.input-dollar-group .form-control {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  height: 32px;
+}
+
+@media (min-width: 768px) {
+  .input-dollar-group .form-control {
+    border-radius: 0 5px 5px 0;
+    height: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .input-dollar-group .form-control {
+    border-radius: 0 6px 6px 0;
+    height: 40px;
+  }
+}
+
+.delete-asset-btn {
+  background: none;
+  border: none;
+  padding: 0 0 0 6px;
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .delete-asset-btn {
+    padding: 0 0 0 7px;
+    margin-left: 7px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .delete-asset-btn {
+    padding: 0 0 0 8px;
+    margin-left: 8px;
+  }
+}
+
+.delete-asset-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 768px) {
+  .delete-asset-btn svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .delete-asset-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.delete-asset-btn:hover svg path {
+  stroke: #b71c1c;
+}
+
+.delete-asset-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.delete-asset-btn:disabled svg path {
+  stroke: #bdbdbd;
+}
+
+.delete-asset-btn:disabled:hover svg path {
+  stroke: #bdbdbd;
+}
+
+// 8. ADD ANOTHER ASSET BUTTON
+// ==========================================================================
+.type-Value {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .type-Value {
+    justify-content: flex-end;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .type-Value {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+}
+
+.add-another-asset {
+  margin-top: 20px;
+  color: #56B059;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  gap: 12px;
+  padding: 0 16px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  appearance: none;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .add-another-asset {
+    margin-top: 30px;
+    font-size: 17px;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-another-asset {
+    margin-top: 40px;
+    font-size: 18px;
+    gap: 16px;
+    padding-right: 32px;
+  }
+}
+
+// 9. BOTTOM CONTAINER & ACTION BUTTONS
+// ==========================================================================
+.add-assets-bottom-container {
+  width: 100%;
+  min-height: 60px;
+  background: #fff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  border-top: 1.5px solid #CCCCCC;
+  margin: 20px 0;
+  padding: 0 16px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .add-assets-bottom-container {
+    min-height: 70px;
+    border-radius: 0 0 16px 16px;
+    margin: 30px 0;
+    padding: 0 24px;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-assets-bottom-container {
+    min-height: 80px;
+    border-radius: 0 0 24px 24px;
+    margin: 40px 0;
+    padding: 0 32px;
+  }
+}
+
+.add-assets-bottom-container .btn.btn-primary {
+  border-radius: 20px;
+  min-width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .add-assets-bottom-container .btn.btn-primary {
+    border-radius: 22px;
+    min-width: 110px;
+    font-size: 17px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-assets-bottom-container .btn.btn-primary {
+    border-radius: 24px;
+    min-width: 120px;
+    font-size: 18px;
+  }
+}
+
 .add-assets-bottom-container .btn.btn-primary.close-btn-custom {
   color: #040404;
   background: #F0F0F0;
   border: 1.5px solid #000;
   box-shadow: none;
-  margin-right: auto;
-  margin-left: 8px;
+  margin: 0;
 }
-.add-assets-bottom-container .btn.btn-primary {
-  border-radius: 24px;
-  min-width: 120px;
-  font-size: 18px;
-  font-weight: 600;
+
+@media (min-width: 768px) {
+  .add-assets-bottom-container .btn.btn-primary.close-btn-custom {
+    margin-right: auto;
+    margin-left: 8px;
+  }
 }
+
 .add-assets-bottom-container .btn.btn-primary.save-btn-custom {
-  margin-left: auto;
-  margin-right: 8px;
+  margin: 0;
   color: #56B059;
   background: #FFFFFF;
   border: 1.5px solid #56B059;
@@ -22,6 +821,14 @@
   opacity: 1;
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .add-assets-bottom-container .btn.btn-primary.save-btn-custom {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+}
+
 .add-assets-bottom-container .btn.btn-primary.save-btn-custom.disabled,
 .add-assets-bottom-container .btn.btn-primary.save-btn-custom:disabled {
   color: #bdbdbd;
@@ -30,365 +837,9 @@
   cursor: not-allowed;
   opacity: 0.7;
 }
-// Bottom container for actions or summary
-.add-assets-bottom-container {
-  width: 100%;
-  min-height: 80px;
-  background: #fff;
-  border-radius: 0 0 24px 24px;
-  display: flex;
-  align-items: center;
-  border-top: 1.5px solid #CCCCCC;
-  margin: 40px 0;
-  padding: 0 32px;
-}
-.add-assets-bottom-container .btn.btn-primary {
-  min-width: 120px;
-  font-size: 18px;
-  font-weight: 600;
-}
-.add-assets-bottom-container .btn.btn-primary:first-child {
-  margin-right: auto;
-  margin-left: 8px;
-}
-.add-assets-bottom-container .btn.btn-primary:last-child {
-  margin-left: auto;
-  margin-right: 8px;
-}
-// Style for close button in top right
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-.close-btn:hover {
-  background: #f2f2f2;
-}
-.close-btn svg {
-  display: block;
-}
-// Style for delete button next to asset value input
-.delete-asset-btn {
-  background: none;
-  border: none;
-  padding: 0 0 0 8px;
-  margin-left: 8px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  outline: none;
-  transition: color 0.2s;
-}
-.delete-asset-btn svg {
-  display: block;
-}
-.delete-asset-btn:hover svg path {
-  stroke: #b71c1c;
-}
 
-.add-another-asset {
-  margin-top: 40px;
-  color: #56B059;
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  cursor: pointer;
-  user-select: none;
-  width: 100%;
-  gap: 16px;
-  padding-right: 32px;
-  background: none;
-  border: none;
-  box-shadow: none;
-  appearance: none;
-  outline: none;
-}
-
-.input-dollar-group {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.input-dollar-prefix {
-  background: transparent;
-  color: #222;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px 0 0 6px;
-  border: 1px solid #ccc;
-  border-right: none;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.input-dollar-group .form-control {
-  border-radius: 0 6px 6px 0;
-  border-left: none;
-  height: 40px;
-}
-.asset-form-table thead tr {
-  border-bottom: 1.5px solid #CCCCCC;
-}
-
-.asset-form-table-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 32px;
-}
-.asset-form-table {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  border-collapse: separate;
-  border-spacing: 0 12px;
-  background: transparent;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
-  border-radius: 12px;
-  padding: 0;
-}
-.asset-form-table th {
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-  color: #222;
-  padding-bottom: 8px;
-  border: none;
-  background: none;
-  padding-left: 70px;
-}
-.asset-form-table td {
-  border: none;
-  background: transparent;
-  padding-top: 12px;
-  padding-bottom: 8px;
-  padding-right: 0;
-  vertical-align: top;
-  width: 48%;
-  text-align: center;
-}
-.asset-form-table td:first-child {
-  padding-left: 20px;
-}
-.asset-form-table td:last-child {
-  padding-right: 20px;
-}
-.asset-form-table td + td {
-  padding-left: 24px;
-}
-.asset-form-table .w-100 {
-  width: 100%;
-}
-.asset-form-table button.form-select {
-  width: 100%;
-  text-align: left;
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: transparent;
-  color: #222;
-  box-shadow: none;
-}
-.asset-form-table ul[ngbDropdownMenu] {
-  width: 100%;
-  min-width: 0;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-  padding: 0;
-  margin: 0;
-}
-.asset-form-table li[ngbDropdownItem] {
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #222;
-}
-.asset-form-table li[ngbDropdownItem]:hover {
-  background: #f0f4fa;
-}
-.asset-form-table input[type="number"],
-.asset-form-table input.form-control,
-.asset-form-table select {
-  width: 100%;
-  min-width: 120px;
-  max-width: 100%;
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background: transparent;
-  color: #222;
-}
-.asset-form-table input[type="number"]:focus,
-.asset-form-table input.form-control:focus {
-  outline: 2px solid #1976d2;
-  border-color: #1976d2;
-}
-.asset-form-table select {
-  width: 90%;
-  min-width: 120px;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-.asset-form-table select:focus {
-  outline: 2px solid #1976d2;
-  border-color: #1976d2;
-}
-
-@media (max-width: 600px) {
-
-
-  .add-assets-container {
-    width: 98vw;
-    min-width: 0;
-    max-width: 100vw;
-    height: auto;
-    min-height: 100vh;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0 4vw;
-  }
-
-
-
-  .add-assets-middle-container {
-    width: 100%;
-    min-width: 0;
-    max-width: 100vw;
-    height: auto;
-    min-height: 200px;
-    margin: 24px 0 0 0;
-    border-radius: 10px;
-    box-shadow: none;
-    padding: 16px 8px;
-  }
-
-  .icon-border-container {
-    flex-direction: column;
-    align-items: flex-start;
-    .assets-icon {
-      margin: 20px 0 0 0;
-      width: 36px;
-      height: 40px;
-    }
-    .add-assets-title {
-      margin: 16px 0 0 0;
-      font-size: 22px;
-      line-height: 32px;
-    }
-  }
-
-  .add-assets-header {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 0;
-  }
-
-  .add-assets-header-border {
-    margin-top: 8px;
-  }
-}
-.add-assets-header-border {
-  width: 100%;
-  height: 1px;
-  background: #CCCCCC;
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-.add-assets-middle-container {
-  height: auto;
-  width: 988px;
-  border-radius: 16px;
-  border: 1px solid #CCCCCC;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin: 30px auto 0 auto;
-}
-
-.type-Value {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #222;
-  align-items: flex-start;
-}
-.add-assets-outer {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f5f5f5; /* Optional: subtle background */
-}
-.add-assets-container {
-  height: 100%;
-  width: 1078px;
-  background: #fff;
-  border-radius: 24px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.icon-border-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
- 
-
-  .assets-icon {
-    margin-left: 0;
-    margin: 0 0 0 40px;
-    width: 46px;
-    height: 51px;
-  }
-
-  .add-assets-title {
-    margin: 0 0 0 24px;
-    font-size: 30px;
-    font-weight: 700;
-    color: #222;
-    line-height: 51px;
-  }
-}
-
-
-.add-assets-header {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  padding: 20px 0;
-}
-
+// 10. UTILITY CLASSES
+// ==========================================================================
 .force-row {
   flex-direction: row !important;
   align-items: flex-start !important;

@@ -39,6 +39,23 @@ export class AssetsOverviewComponent implements OnInit, OnDestroy {
     return this.assets.reduce((total, asset) => total + asset.value, 0);
   }
 
+  getAssetTypeDisplay(type: string): string {
+    const typeMap: { [key: string]: string } = {
+      'stock': 'Gift',
+      'bond': 'Savings',
+      'real-estate': 'Real Estate',
+      'crypto': 'Crypto'
+    };
+    return typeMap[type] || type;
+  }
+
+  formatCurrency(value: number): string {
+    return value.toLocaleString('en-US', { 
+      minimumFractionDigits: 2, 
+      maximumFractionDigits: 2 
+    });
+  }
+
   goToAddAssets() {
     this.router.navigate(['/add-assets']);
   }

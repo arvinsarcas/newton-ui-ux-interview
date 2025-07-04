@@ -1,23 +1,23 @@
-<div class="add-assets-outer">
-  <div class="add-assets-container">
-    <div class="add-assets-header icon-border-container">
+<div class="assets-overview-outer">
+  <div class="assets-overview-container">
+    <div class="assets-overview-header icon-border-container">
       <img src="/assets/icons/assets.svg" alt="Assets Icon" class="assets-icon" />
-      <h1 class="add-assets-title">Assets Overview</h1>
+      <h1 class="assets-overview-title">Assets Overview</h1>
     </div>
-    <div class="add-assets-header-border"></div>
-    <div class="add-assets-middle-container">
+    <div class="assets-overview-header-border"></div>
+    <div class="assets-overview-middle-container">
       <div class="asset-form-table-wrapper">
         <div class="asset-list">
           <div class="asset-row" *ngFor="let asset of assets; let i = index">
             <div class="asset-type-cell">
               <span class="asset-type-pill {{ asset.type }}">
-                {{ asset.type === 'stock' ? 'Gift' : asset.type === 'bond' ? 'Savings' : asset.type === 'real-estate' ? 'Real Estate' : asset.type === 'crypto' ? 'Crypto' : asset.type }}
+                {{ getAssetTypeDisplay(asset.type) }}
               </span>
             </div>
             <div class="asset-value-cell">
               <div class="input-dollar-group">
                 <span class="input-dollar-prefix">$</span>
-                <span class="asset-value">{{ asset.value }}</span>
+                <span class="asset-value">{{ formatCurrency(asset.value) }}</span>
               </div>
               <button type="button" class="delete-asset-btn" ngbButton aria-label="Delete asset" (click)="deleteAsset(i)">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
             <div class="asset-value-cell">
               <div class="input-dollar-group">
                 <span class="input-dollar-prefix">$</span>
-                <span class="asset-value total-value">{{ getTotalValue() }}</span>
+                <span class="asset-value total-value">{{ formatCurrency(getTotalValue()) }}</span>
               </div>
             </div>
           </div>

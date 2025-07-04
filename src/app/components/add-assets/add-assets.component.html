@@ -1,13 +1,13 @@
 <div class="add-assets-outer">
-  <button class="close-btn" type="button" aria-label="Close" (click)="close()">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 6L18 18M6 18L18 6" stroke="#222" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
   <div class="add-assets-container">
     <div class="add-assets-header icon-border-container">
       <img src="/assets/icons/assets.svg" alt="Assets Icon" class="assets-icon" />
       <h1 class="add-assets-title">Add Assets</h1>
+      <button class="close-btn" type="button" aria-label="Close" (click)="close()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18M6 18L18 6" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
     <div class="add-assets-header-border"></div>
     <div class="add-assets-middle-container">
@@ -26,15 +26,15 @@
                   <option value="" disabled>- Select -</option>
                   <option value="stock">Gift </option>
                   <option value="bond">Savings</option>
-                  <option value="real-estate">Real Estate</option>
-                  <option value="crypto">Crypto</option>
+                  <option value="real-estate">RRSP</option>
+                  <option value="crypto">Other</option>
                 </select>
               </td>
               <td>
                 <div class="input-dollar-group">
                   <span class="input-dollar-prefix">$</span>
-                  <input type="number" class="form-control" placeholder="Enter value" aria-label="Asset Value" [(ngModel)]="asset.value" />
-                  <button type="button" class="delete-asset-btn" aria-label="Delete asset" (click)="deleteAsset(i)">
+                  <input type="number" class="form-control" placeholder="0.00" aria-label="Asset Value" [(ngModel)]="asset.value" step="0.01" min="0" />
+                  <button type="button" class="delete-asset-btn" aria-label="Delete asset" [disabled]="assets.length === 1" (click)="deleteAsset(i)">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 6H15M8.333 9V13M11.667 9V13M3.333 6.667L4.167 16.667C4.236 17.403 4.872 18 5.615 18H14.385C15.128 18 15.764 17.403 15.833 16.667L16.667 6.667M7.5 6V4.667C7.5 4.298 7.632 3.944 7.866 3.677C8.1 3.41 8.417 3.25 8.75 3.25H11.25C11.583 3.25 11.9 3.41 12.134 3.677C12.368 3.944 12.5 4.298 12.5 4.667V6" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -47,6 +47,7 @@
       </div>
       <div class="type-Value">
         <button class="add-another-asset" type="button" (click)="addAsset()">
+          <img src="/assets/icons/Plus.svg" alt="Plus Icon" class="plus-icon" />
           Add another asset
         </button>
       </div>
