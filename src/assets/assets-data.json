@@ -1,0 +1,5 @@
+[
+  { "type": "stock", "value": 10000 },
+  { "type": "bond", "value": 5000 },
+  { "type": "real-estate", "value": 20000 }
+]

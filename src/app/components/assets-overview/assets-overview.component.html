@@ -1,0 +1,47 @@
+<div class="add-assets-outer">
+  <div class="add-assets-container">
+    <div class="add-assets-header icon-border-container">
+      <img src="/assets/icons/assets.svg" alt="Assets Icon" class="assets-icon" />
+      <h1 class="add-assets-title">Assets Overview</h1>
+    </div>
+    <div class="add-assets-header-border"></div>
+    <div class="add-assets-middle-container">
+      <div class="asset-form-table-wrapper">
+        <div class="asset-list">
+          <div class="asset-row" *ngFor="let asset of assets; let i = index">
+            <div class="asset-type-cell">
+              <span class="asset-type-pill {{ asset.type }}">
+                {{ asset.type === 'stock' ? 'Gift' : asset.type === 'bond' ? 'Savings' : asset.type === 'real-estate' ? 'Real Estate' : asset.type === 'crypto' ? 'Crypto' : asset.type }}
+              </span>
+            </div>
+            <div class="asset-value-cell">
+              <div class="input-dollar-group">
+                <span class="input-dollar-prefix">$</span>
+                <span class="asset-value">{{ asset.value }}</span>
+              </div>
+              <button type="button" class="delete-asset-btn" ngbButton aria-label="Delete asset" (click)="deleteAsset(i)">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 6H15M8.333 9V13M11.667 9V13M3.333 6.667L4.167 16.667C4.236 17.403 4.872 18 5.615 18H14.385C15.128 18 15.764 17.403 15.833 16.667L16.667 6.667M7.5 6V4.667C7.5 4.298 7.632 3.944 7.866 3.677C8.1 3.41 8.417 3.25 8.75 3.25H11.25C11.583 3.25 11.9 3.41 12.134 3.677C12.368 3.944 12.5 4.298 12.5 4.667V6" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="total-row">
+            <div class="asset-type-cell">
+              <span class="total-label">Total Value</span>
+            </div>
+            <div class="asset-value-cell">
+              <div class="input-dollar-group">
+                <span class="input-dollar-prefix">$</span>
+                <span class="asset-value total-value">{{ getTotalValue() }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="add-assets-button-container">
+            <button class="add-assets-btn" (click)="goToAddAssets()">Add Assets</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

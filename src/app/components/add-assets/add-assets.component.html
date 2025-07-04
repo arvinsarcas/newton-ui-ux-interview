@@ -52,7 +52,12 @@
       </div>
     </div>
     <div class="add-assets-bottom-container">
-      <!-- Add your bottom content here -->
+      <button type="button" ngbButton class="btn btn-primary close-btn-custom ms-2" (click)="close()">
+        Close
+      </button>
+      <button type="button" ngbButton class="btn btn-primary save-btn-custom me-2" [disabled]="isSaveDisabled" [class.disabled]="isSaveDisabled" (click)="save()">
+        Save
+      </button>
     </div>
   </div>
 </div>
